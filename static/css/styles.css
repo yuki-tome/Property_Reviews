@@ -1,0 +1,22 @@
+#target {
+    width: 550px;
+    height: 500px;
+}
+.image {
+    margin-right: calc(50% - 50vw);
+	margin-left: calc(50% - 50vw);
+}
+.image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#nav{
+    background-color: bisque;
+}
+body{
+    color:black;
+}
+li{
+    color: rgb(135, 166, 175);
+}

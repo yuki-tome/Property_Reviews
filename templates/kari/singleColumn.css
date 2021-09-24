@@ -1,0 +1,39 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.jumbotron {
+    height: 150px;
+    margin: 30px ;
+    background-color: white;
+}
+.jumbotron h1{
+    text-align: center;
+}
+.jumbotron p{
+  text-align: left;
+}
+.jumbotron, div#main,div#api footer {
+  padding: 8px;
+}
+.content {
+  width: 100%;
+  display:table;
+}
+
+.main {
+  width: 70%;
+  display:table-cell;
+}
+
+.api{
+  display:table-cell;
+}
+
+
+footer{
+    height: 130px;
+    text-align: left;
+    background-color: #eee;
+}

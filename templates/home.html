@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% include "header.html" %}
+<div class="my-5">
+    <div style="position: relative; display:block;" class="image">
+      <img src="/media/college.jpg">
+      <div style="position: absolute; top: 0; left: 0; max-width: 100%; max-height: 100%; padding: 50px; text-align: left;">
+        <h5 class="fw-bold fs-1 text-white">大学一覧</h5>
+        <ul class="list-unstyled text-small row">
+                <div class="col my-3">
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=会津大学" >会津大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=青森大学" >青森大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=秋田大学" >秋田大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=岩手大学" >岩手大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=東京大学" >東京大学</a></li>
+                </div>
+                <div class="col my-3">
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=東北大学" >東北大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=福島大学" >福島大学</a></li>
+                    <li><a class="link-secondary text-white" href="{% url 'search_post' %}?q=秋田大学" >山形大学</a></li>
+                </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>  
+{% endblock header %}
+
+{% block content %}
+{% include "list.html" %}
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<body>
+    <div class="jumbotron jumbotron-fluid">
+      <h1 class="display-4">リアルな物件クチコミサイト</h1>
+      <p class="lead">物件一覧です。</p>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <div class="content">
+       <div class="main">
+         <div class = 'container'>
+             <a href="{% url 'create' %}" class="btn btn-primary">物件のクチコミを書く</a>
+         {% for item in object_list %}
+         <div class="card">
+             <h5 class="card-header">{{item.title}}</h5>
+             <div class="card-body">
+                 <h5 class="card-title">{{item.address}}</h5>
+                 <h5 class="card-title">評価　{{item.evaluation}}</h5>
+                 <h6 class="card-title">{{item.postdate}}</h6>
+                 <a href="{% url 'detail' item.pk %}" class="btn btn-primary">詳細へ</a>
+             </div>
+         </div>
+        {% endfor %}
+        </div>
+        {% endblock content %}
+      </div>
+      <div id="map"></div>
+
+    </div>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAI6ltDKGLvZpCTZtd5HyHWzkVIaImbTZk&language=ja"></script>
+
+    <script>
+    var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+    var Options = {
+      zoom: 15,      //地図の縮尺値
+      center: MyLatLng,    //地図の中心座標
+      mapTypeId: 'roadmap'   //地図の種類
+    };
+    var map = new google.maps.Map(document.getElementById('map'), Options);
+    </script>
+    <footer class="footer">
+      <p>フッター</p>
+      <ul>
+        <li>他物件サイト</li>
+        <li><a href="summo.html">suumo</a></li>
+        <li><a href="wwww.html">wwwww</a></li>
+      </ul>
+    </footer>
+</body>
+</html>

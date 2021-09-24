@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+
+<div class = 'container'>
+    <div class="card">
+        <h5 class="card-header">{{object.property_name}}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{object.content}}</h5>
+            <h5 class="card-title">評価　{{object.evaluation}}</h5>
+            <h5 class="card-title">{{object.school_name}}</h5>
+            <h6 class="card-title">{{object.address}}</h6>
+            <h6 class="card-title">{{object.postdate}}</h6>
+            
+            <div id="target"></div>
+            <!-- <img src="http://maps.googleapis.com/maps/api/streetview?location=results[0].geometry.location.lat(), results[0].geometry.location.lng()&size=300x300&heading=180&fov=60&key=API_key"> -->
+</body>
+</html>
+
+
+            <a href="{% url 'list' %}" class="btn btn-primary">一覧へ</a>
+            <a href="{% url 'update' object.pk %}" class="btn btn-primary">編集する</a>
+            <a href="{% url 'delete' object.pk %}" class="btn btn-primary">削除する</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBdvkJtf3CU9tMpwcdbJjGtQx74GruJmfU&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      'use strict';
+
+      var target = document.getElementById('target');
+      var geocoder = new google.maps.Geocoder();
+      var a;
+
+      // Geocoding: Address -> LatLng
+      // Reverse Geocoding: LatLng -> Address
+
+    geocoder.geocode({
+        address: "{{object.address}}"
+        }, function(results, status) {
+        if (status !== 'OK') {
+            alert('Failed: ' + status);
+            return;
+        }
+        // results[0].geometry.location
+        if (results[0]) {
+            var map = new google.maps.Map(target, {
+            center: results[0].geometry.location,
+            zoom: 15
+            });
+            //マーカーの生成
+            var marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map,
+            animation: google.maps.Animation.DROP
+            });
+        } else {
+            alert('No results found');
+            return;
+        }
+        });
+        
+
+    }
+  </script>
+{% endblock content %}
