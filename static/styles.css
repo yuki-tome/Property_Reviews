@@ -11,6 +11,9 @@
 	width: 100%;
 	height: auto;
 }
+.form{
+    background-color: aqua;
+}
 #nav{
     background-color: bisque;
 }
