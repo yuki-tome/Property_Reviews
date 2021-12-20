@@ -2,4 +2,4 @@
 
 <img src="./img/web.png">
 実際に使っている映像です。
-<https://youtu.be/xTxCXm0LFRY>
+[YouTube](https://youtu.be/xTxCXm0LFRY)
